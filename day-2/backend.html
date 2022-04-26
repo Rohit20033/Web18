@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #nav{
+            display: flex;
+            font-size: 30px;
+            background-color: black;
+            justify-content: space-between;
+            justify-content: space-around;
+            width: 60%;
+            margin: auto;
+        }
+        #nav>div{
+            
+        }
+        a{
+            text-decoration: none;
+            color: white;
+
+        }
+        input{
+            
+            margin-top: 50px;
+            margin-left: 20px;
+            background-color: antiquewhite;
+            font-size: 20px;
+
+        }
+        #sub{
+            background-color: red;
+            color: white;
+            padding: 5px 10px 5px 10px;
+            border-radius: 5px;
+        }
+        #sub:hover{
+            background-color: white;
+            color: red;
+        }
+        h1{
+            text-align: center;
+            text-decoration:underline;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    
+    <div id="nav">
+        <div><a href="backend.html">Backend</a></div>
+        <div><a href="frontend.html">Frontend</a></div>
+    </div>
+    <h1>WELCOME</h1>
+   <form id="invesform">
+    <input type="text" id="name" placeholder="Enter Name">
+    <input type="text" id="imageURL" placeholder="Enter Image URL">
+    <input type="text" id="companylogo" placeholder="companyURL">
+    <input type="text" id="role" placeholder="Enter your Role">
+    <input type="submit" id="sub" />
+   </form>
+</body>
+</html>
+<script>
+document.querySelector("#invesform").addEventListener("submit",addinput)
+ var arr = JSON.parse(localStorage.getItem("invesdata"))||[]
+function addinput()
+{
+ event.preventDefault()
+ var obj={
+     Name:invesform.name.value,
+     imageurl : invesform.imageURL.value,
+     companyurl:invesform.companylogo.value,
+     role:invesform.role.value,
+ }
+ arr.push(obj)
+ console.log(arr)
+ localStorage.setItem("invesdata",JSON.stringify(arr))
+}
+</script>
