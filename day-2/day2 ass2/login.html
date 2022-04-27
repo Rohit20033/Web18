@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #bbox{
+            display: block;
+            margin: auto;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+            width: 35%;
+            height:auto;
+            margin-top: 200px;
+            padding: 40px 0px 40px 0px;
+            
+        }
+          input{
+              display: block;
+              width: 90%;
+              height: 50px;
+              margin: auto;
+              margin-top: 10px;
+              margin-bottom: 10px;
+              
+   
+          }
+          h2{
+              text-align: center;
+          }
+          .head{
+              margin-left: 25px;
+              
+          }
+          #submit{
+              margin-top: 50px;
+              margin-bottom: 50px;
+              background-color: red;
+              color: white;
+          }
+          
+       
+       #submit:hover{
+           background-color: white;
+           color: red;
+       }
+       </style>
+</head>
+<body>
+    <div id="bbox">
+        <h2>LOG IN</h2>
+      <form id="form">
+           <div class="head">Email</div>
+          <input type="text" id="email" placeholder="Enter tou @Email">
+          <div class="head">Password</div>
+          <input type="password" id="password" placeholder="Enter your password">
+        
+          <input type="submit" id="submit" value="LOG IN" />
+       </form>
+</body>
+</html>
+<script>
+    var loginn = JSON.parse(localStorage.getItem("signupdata"))
+
+            document.querySelector("form").addEventListener("submit",login)
+    function login(){
+
+      event.preventDefault()
+
+        var Name = document.querySelector("#email").value
+        var password = document.querySelector("#password").value
+
+        console.log(Name,password)
+        for(var i=0;i<loginn.length;i++)
+        {
+            if(Name==loginn[i].email&&password==loginn[i].pass)
+            {
+                alert("LOGIN successful")
+                break;
+            }
+            else if(Name!=loginn[i].email)
+            {
+                alert("wrong E-mail")
+                break;
+            }
+            else{
+                alert("Incorrrect password")
+                break;
+            }
+        }
+
+    }
+    
+</script>
