@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     #bbox{
+         display: block;
+         margin: auto;
+         box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+         width: 35%;
+         margin-top: 200px;
+         padding: 40px 0px 40px 0px;
+     }
+       input{
+           display: block;
+           width: 90%;
+           height: 50px;
+           margin: auto;
+           margin-top: 10px;
+           margin-bottom: 10px;
+           
+
+       }
+       h2{
+           text-align: center;
+       }
+       .head{
+           margin-left: 25px;
+           
+       }
+       #submit{
+           margin-top: 50px;
+           margin-bottom: 50px;
+           background-color: red;
+           color: white;
+           border: 2px solid black ;
+
+       }
+       #submit:hover{
+           background-color: white;
+           color: red;
+       }
+    </style>
+</head>
+<body>
+  <div id="bbox">
+      <h2>SIGN UP</h2>
+    <form id="form">
+         <div class="head">Email</div>
+        <input type="text" id="email" placeholder="Enter your @Email">
+        <div class="head">Password</div>
+        <input type="password" id="password" placeholder="Enter your password" maxlength="20" minlength="8">
+        <div class="head">Mobile Number</div>
+        <input type="number" id="num" placeholder="Enter your Mobile" > 
+        <input type="submit" id="submit" />
+     </form>
+  </div>
+</body>
+</html>
+
+<script>
+    var arr=JSON.parse(localStorage.getItem("signupdata"))||[]
+    document.querySelector("form").addEventListener("submit",collectdata)
+
+    function collectdata(){
+        event.preventDefault()
+        var obj={
+            email:form.email.value,
+            pass:form.password.value,
+            numb:form.num.value,
+        }
+        arr.push(obj)
+        console.log(arr)
+        localStorage.setItem("signupdata",JSON.stringify(arr))
+        window.location.href="login.html"
+        
+    }
+</script>
